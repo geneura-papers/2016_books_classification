@@ -1,7 +1,7 @@
 Predicting Levels of Sales for Newly Published Books
 =============
 
-This is a paper on predicting the level of sales of newly published books.
+This is a paper on predicting the level of sales for newly published books.
 This is a multi-class classification problem.
 
 Challenges
