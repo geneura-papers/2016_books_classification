@@ -1,0 +1,236 @@
+\documentclass{llncs}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[dvips]{epsfig}
+\usepackage[latin1]{inputenc}
+\usepackage{url}
+
+\def\CC{{C\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}~}
+\addtolength{\textfloatsep}{-0.5cm}
+\addtolength{\intextsep}{-0.5cm}
+
+
+%%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
+\title{Predicting Levels of Sales for Newly Published Books using Cost-Sensitive Ensemble Methods} 
+
+
+
+%%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%
+\author {}
+\institute{}
+% Antonio - Hossam add your 'official' e-mail here. ;)
+
+\date{}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+\end{abstract}
+
+
+%********************************************************************************
+
+\section{Introduction}
+
+
+\section{Materials and methods}
+\subsection{Basic classifiers}
+
+
+In order to show the need for more intelligent and complex classification models, basic and more common models are experimented and applied first. 
+\begin{itemize}
+
+\item \textbf{$k$-Nearest Neighbors ($k$-NN)}
+
+\item \textbf{Naive Bayes classifier}
+
+\item \textbf{C4.5 Decision Trees}
+
+
+\item \textbf{Multilayer Perceptron neural networks (MLP)}: MLP is a feedforward 
+artificial neural network model that maps the input data onto an appropriate output. 
+It is an artificial neural network generally used for classification or 
+approximation problems \cite{Rosenblatt1962,Widrow1990} .
+
+This model is a generalisation of the standard linear perceptron that uses several 
+layers of nodes (called neurons) and that is able to solve linearly inseparable 
+problems \cite{SteinwenderBitzer2003}.
+Each neuron consists of a linear combination of weighted inputs which is passed 
+though a non-linear activation function to produce its output.
+
+This kind of artificial neural network is trained using a supervised learning 
+technique called back-propagation.
+This training method was developed independently by Werbos \cite{Werbos1974}, 
+Parker \cite{Parker1985} and Rumelhart et al. \cite{Rumelhart1985}, and consists
+in updating the weights of the output layer neurons once the erroneous output 
+has been obtained, and then, propagating the successive weight layers back to 
+the input layer.
+
+A key issue when designing an MLP is the number of hidden layers of neurons.
+Lippmann proved in \cite{Lippmann1987} that two hidden layers are enough to 
+create classifying regions of any kind. This result was then confirmed in later 
+works by Bishop \cite{Bishop1996} and Reed et al. \cite{Reed1999}.
+
+\item \textbf{Support Vector Machines (SVM)}
+
+
+\end{itemize}
+
+
+
+
+
+
+\subsection{Ensemble classifiers}
+
+\begin{itemize}
+\item \textbf{Bagging}
+\item \textbf{Boosting}
+\item \textbf{Random Forest}
+\end{itemize}
+
+
+
+\section{Cost sensitive classification}
+
+\subsection{Cost sensitive learning}
+\subsection{Cost sensitive classification}
+
+
+\section{Dataset description}
+
+
+
+
+
+
+
+The obtained dataset contains collected information about 6083 different books produced by 209 publishers. Each book in the dataset is represented by 10 feature as shown in Table \ref{tabla:params_pre_sales}. 
+
+
+\begin{table}
+\caption{Pre-sales features and Sales level(Output class). } 
+\label{tabla:params_pre_sales}
+\begin{center}
+\begin{tabular}{|c|l|l|c|c|}
+\hline 
+No. & Feature Name & Variable & Type & In/Out\\
+\hline 
+1 & retail price (when launched) & \texttt{ret\_price} & numerical & input\\
+2 & main subject (code) & \texttt{subject1} & numerical & input\\
+3 & bookbinding (code) & \texttt{binding} & categorical & input\\
+4 & gifts (promotional books) & \texttt{gifts} & numerical & input\\
+5 & units distributed as novelty & \texttt{distrib\_novelty} & numerical & input\\
+6 & total number of points of sale & \texttt{tot\_points\_sale} & numerical & input\\
+7 & total number of points of sale (1st year) & \texttt{tot\_points\_sale\_1st\_year} & numerical & input\\
+8 & weeks on sale & \texttt{weeks\_sale} & numerical & input\\
+9 & print run & \texttt{print\_run} & numerical & input\\
+\hline 
+\hline
+10 & Sales level & \texttt{sales\_level} & categorical & output\\
+\hline 
+\end{tabular}
+\end{center}
+\end{table}
+
+
+The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. 
+
+Table \ref{table:freq} and Figure \ref{fig:count} reveal more information about the nature of the dataset. We can notice that most of 77\% of the boos investigated are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
+
+\begin{table*}[ht]
+\caption{Categories corresponding to total sales }
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Category & Range of total sales & Count & Ratio\tabularnewline
+\hline 
+\hline 
+Low & 0-60 & 1631 & 26.8\%\tabularnewline
+\hline 
+Medium & 61-300 & 2212 & 36.4\%\tabularnewline
+\hline 
+High & 300-1000 & 1460 & 24\%\tabularnewline
+\hline 
+Very High & $>$1000 & 780 & 12.8\%\tabularnewline
+\hline 
+\end{tabular}
+\label{table:freq}
+\end{table*}
+
+
+
+\section{Evaluation measurements}
+
+
+
+
+To evaluate the developed classification models, first, we refer the confusion matrix shown in Table \ref{fig:confusionmatrix} which is basic source for evaluating any classification model. Based on this matrix, the accuracy rate simply measures the total number of correctly classified instances over the total number of instances as shown in Equation \ref{equation:acc}.
+
+In our case which is a multi-class prediction problem, the confusion matrix is expanded with a row and column for each class. 
+
+
+
+%Moreover, the cost of our classes is not the same 
+
+
+
+
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.50]{confusion-matrix}
+\end{center}
+\caption{Basic confusion matrix.}
+\label{fig:confusionmatrix}
+\end{figure*}
+
+
+	\begin{equation}
+		\textit{accuracy} =\frac{tp + tn}{tp + fn + fp + tn}.
+		\label{equation:acc}
+	\end{equation}
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.40]{Confusion-matrix-multiclass-default}
+\end{center}
+\caption{Default cost matrix.}
+\label{fig:count}
+\end{figure*}
+
+
+
+
+
+\section{Experiments and results}
+
+\subsection{Experiments setup}
+
+%********************************************************************************
+\section{Conclusions and Future Work}
+\label{sec:conclusionsAndFutureWork}
+
+
+
+
+
+%********************************************************************************
+\section*{Acknowledgements}
+
+
+
+%********************************************************************************
+\bibliographystyle{plain}
+\bibliography{refs}
+
+%----------------------------------------------------------------------
+
+\end{document}
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:
