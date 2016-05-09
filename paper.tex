@@ -166,19 +166,9 @@ Very High & $>$1000 & 780 & 12.8\%\tabularnewline
 
 \section{Evaluation measurements}
 
+To evaluate the developed classification models, first, we refer the confusion matrix shown in Table \ref{fig:confusionmatrix} which is considered as a basic source for evaluating any binary classification model. In our case which is a multiclass prediction problem, this matrix can be expanded with a row and column for each class to evaluate the multiclass classfication models. Three measurements are used to evaluate the applied classifiers: accuracy rate, precision and recall. The accuracy rate simply measures the total number of correctly classified instances over the total number of instances $N$ as shown in Equation \ref{equation:acc}.
 
-
-
-To evaluate the developed classification models, first, we refer the confusion matrix shown in Table \ref{fig:confusionmatrix} which is basic source for evaluating any classification model. Based on this matrix, the accuracy rate simply measures the total number of correctly classified instances over the total number of instances as shown in Equation \ref{equation:acc}.
-
-In our case which is a multi-class prediction problem, the confusion matrix is expanded with a row and column for each class. 
-
-
-
-%Moreover, the cost of our classes is not the same 
-
-
-
+Precision is the ratio of the correctly classified instances as $i$ to the number of instances classified as $i$. On the other side, recall is the ratio of the correctly classified instances as $i$ to the number of actual $i$ instances . Precision and recall are given in Equation \ref{equation:precision} and \ref{equation:recall}, respectively.
 
 
 \begin{figure*}[ht]
@@ -189,11 +179,22 @@ In our case which is a multi-class prediction problem, the confusion matrix is e
 \label{fig:confusionmatrix}
 \end{figure*}
 
+\begin{equation}
+Accuracy=\frac{\sum_{i}C_{ii}}{N}
+\label{equation:acc}
+\end{equation}
 
-	\begin{equation}
-		\textit{accuracy} =\frac{tp + tn}{tp + fn + fp + tn}.
-		\label{equation:acc}
-	\end{equation}
+
+\begin{equation}
+Precision_{i}=\frac{C_{ii}}{\sum_{j}C_{ij}}
+\label{equation:precision}
+\end{equation}
+
+
+\begin{equation}
+Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
+\label{equation:recall}
+\end{equation}
 
 \begin{figure*}[ht]
 \begin{center}
