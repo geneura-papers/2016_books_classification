@@ -210,7 +210,46 @@ Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
 
 \section{Experiments and results}
 
-\subsection{Experiments setup}
+%This is just the first step of the experiments
+% This table shows the average results of 10X10-folds experiments of the basic classifiers.
+% It is impossible to calculate directly the average Precision and Recall for each class for multiclass problems in Weka Experimenter. So I have written a bash script to generate the row predictions utilizing Weka 3.9 developers version. Then I wrote another Python script to process these predicitons and calculate the precision and recall measurements as listed in this table.
+
+
+
+\begin{table}
+\caption{Classification results using basic classifiers}
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ & kNN & NB & J48 & MLP & SVM\tabularnewline
+\hline 
+\hline 
+$Accuracy$  & 0.69$\pm$0.0018 & 0.66$\pm$0.001 & 0.7$\pm$0.0029 & 0.71$\pm$0.0022 & 0.67$\pm$0.0011\tabularnewline
+\hline 
+\hline 
+$Recall_{L}$ & 0.76$\pm$0.0035 & 0.87$\pm$0.0013 & 0.79$\pm$0.0073 & 0.78$\pm$0.0178 & 0.6$\pm$0.0023\tabularnewline
+\hline 
+$Precision_{L}$ & 0.78$\pm$0.0027 & 0.71$\pm$0.0009 & 0.79$\pm$0.006 & 0.81$\pm$0.0166 & 0.84$\pm$0.0018\tabularnewline
+\hline 
+\hline 
+$Recall_{M}$ & 0.74$\pm$0.003 & 0.64$\pm$0.0018 & 0.69$\pm$0.0074 & 0.71$\pm$0.0205 & 0.82$\pm$0.0015\tabularnewline
+\hline 
+$Precision_{M}$ & 0.65$\pm$0.0019 & 0.63$\pm$0.0009 & 0.68$\pm$0.0051 & 0.68$\pm$0.0084 & 0.6$\pm$0.0009\tabularnewline
+\hline 
+\hline 
+$Recall_{H}$ & 0.59$\pm$0.0019 & 0.53$\pm$0.0018 & 0.6$\pm$0.0118 & 0.65$\pm$0.0399 & 0.56$\pm$0.0024\tabularnewline
+\hline 
+$Precision_{H}$ & 0.62$\pm$0.0021 & 0.58$\pm$0.0022 & 0.61$\pm$0.0061 & 0.62$\pm$0.0109 & 0.63$\pm$0.0016\tabularnewline
+\hline 
+\hline 
+$Recall_{VH}$ & 0.61$\pm$0.005 & 0.52$\pm$0.0046 & 0.72$\pm$0.011 & 0.67$\pm$0.0277 & 0.61$\pm$0.0021\tabularnewline
+\hline 
+$Precision_{VH}$ & 0.78$\pm$0.0063 & 0.82$\pm$0.0028 & 0.73$\pm$0.0076 & 0.77$\pm$0.0213 & 0.78$\pm$0.0027\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\end{table}
 
 %********************************************************************************
 \section{Conclusions and Future Work}
