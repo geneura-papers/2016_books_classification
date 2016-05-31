@@ -217,7 +217,7 @@ Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
 
 
 \begin{table}
-\caption{Classification results using basic classifiers}
+\caption{Classification results using basic classifiers (including print-run)}
 \begin{centering}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
@@ -248,7 +248,40 @@ $Precision_{VH}$ & 0.78$\pm$0.0063 & 0.82$\pm$0.0028 & 0.73$\pm$0.0076 & 0.77$\p
 \hline 
 \end{tabular}
 \par\end{centering}
+\end{table}
 
+
+\begin{table}
+\caption{Classification results using basic classifiers (without print-run)}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ & kNN  & NB  & J48  & MLP  & SVM\tabularnewline
+\hline 
+\hline 
+$Accuracy$  & 0.69$\pm$0.0026 & 0.67$\pm$0.0008 & 0.7$\pm$0.004 & 0.71$\pm$0.0027 & 0.67$\pm$0.0012\tabularnewline
+\hline 
+\hline 
+$Recall_{L}$  & 0.75$\pm$0.0044 & 0.86$\pm$0.0013 & 0.79$\pm$0.0071 & 0.78$\pm$0.0222 & 0.59$\pm$0.0035\tabularnewline
+\hline 
+$Precision_{L}$  & 0.78$\pm$0.003 & 0.73$\pm$0.0017 & 0.8$\pm$0.0049 & 0.8$\pm$0.0173 & 0.84$\pm$0.0025\tabularnewline
+\hline 
+\hline 
+$Recall_{M}$  & 0.74$\pm$0.0034 & 0.66$\pm$0.0024 & 0.7$\pm$0.0072 & 0.71$\pm$0.0129 & 0.82$\pm$0.002\tabularnewline
+\hline 
+$Precision_{M}$  & 0.65$\pm$0.003 & 0.64$\pm$0.0007 & 0.68$\pm$0.0079 & 0.69$\pm$0.007 & 0.59$\pm$0.0012\tabularnewline
+\hline 
+\hline 
+$Recall_{H}$  & 0.59$\pm$0.0047 & 0.53$\pm$0.0022 & 0.6$\pm$0.0099 & 0.65$\pm$0.0346 & 0.55$\pm$0.0016\tabularnewline
+\hline 
+$Precision_{H}$  & 0.62$\pm$0.0037 & 0.58$\pm$0.0017 & 0.62$\pm$0.0058 & 0.62$\pm$0.0109 & 0.63$\pm$0.0012\tabularnewline
+\hline 
+\hline 
+$Recall_{VH}$  & 0.6$\pm$0.0073 & 0.53$\pm$0.003 & 0.72$\pm$0.0086 & 0.68$\pm$0.0336 & 0.61$\pm$0.0012\tabularnewline
+\hline 
+$Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\pm$0.0212 & 0.78$\pm$0.0028\tabularnewline
+\hline 
+\end{tabular}
 \end{table}
 
 %********************************************************************************
